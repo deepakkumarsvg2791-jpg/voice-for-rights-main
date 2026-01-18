@@ -1,0 +1,223 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600;700&family=Noto+Sans+Devanagari:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Government Red & Blue Theme - matching NHRC PDF */
+    --background: 0 0% 98%;
+    --foreground: 220 20% 15%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 220 20% 15%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 20% 15%;
+
+    /* Primary Red - Government/NHRC Red */
+    --primary: 0 75% 45%;
+    --primary-foreground: 0 0% 100%;
+
+    /* Secondary Blue - Navy Blue */
+    --secondary: 220 70% 30%;
+    --secondary-foreground: 0 0% 100%;
+
+    /* Muted Gray */
+    --muted: 220 15% 94%;
+    --muted-foreground: 220 10% 45%;
+
+    /* Accent - Light Blue */
+    --accent: 200 80% 45%;
+    --accent-foreground: 0 0% 100%;
+
+    /* Destructive */
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 220 15% 88%;
+    --input: 220 15% 88%;
+    --ring: 0 75% 45%;
+
+    --radius: 0.5rem;
+
+    /* Custom NHRC colors */
+    --nhrc-red: 0 75% 45%;
+    --nhrc-dark-red: 0 80% 35%;
+    --nhrc-blue: 220 70% 30%;
+    --nhrc-light-blue: 200 80% 45%;
+    --nhrc-navy: 220 75% 20%;
+    --nhrc-green: 140 60% 40%;
+    
+    /* Gradients */
+    --gradient-header: linear-gradient(135deg, hsl(0 80% 35%) 0%, hsl(0 75% 45%) 100%);
+    --gradient-blue: linear-gradient(135deg, hsl(220 70% 30%) 0%, hsl(220 75% 20%) 100%);
+    --gradient-nav: linear-gradient(180deg, hsl(220 15% 96%) 0%, hsl(220 15% 94%) 100%);
+    
+    /* Shadows */
+    --shadow-soft: 0 2px 8px -2px hsl(220 20% 15% / 0.1);
+    --shadow-card: 0 4px 16px -4px hsl(220 20% 15% / 0.12);
+    --shadow-elevated: 0 8px 24px -8px hsl(220 20% 15% / 0.2);
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 220 30% 8%;
+    --foreground: 0 0% 95%;
+
+    --card: 220 30% 12%;
+    --card-foreground: 0 0% 95%;
+
+    --popover: 220 30% 12%;
+    --popover-foreground: 0 0% 95%;
+
+    --primary: 0 70% 50%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 220 60% 40%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 220 20% 20%;
+    --muted-foreground: 220 10% 60%;
+
+    --accent: 200 70% 50%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 63% 31%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 220 20% 20%;
+    --input: 220 20% 20%;
+    --ring: 0 70% 50%;
+    
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Roboto', sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 600;
+  }
+}
+
+@layer components {
+  .header-gradient {
+    background: var(--gradient-header);
+  }
+
+  .blue-gradient {
+    background: var(--gradient-blue);
+  }
+
+  .nav-gradient {
+    background: var(--gradient-nav);
+  }
+
+  .shadow-soft {
+    box-shadow: var(--shadow-soft);
+  }
+
+  .shadow-card {
+    box-shadow: var(--shadow-card);
+  }
+
+  .shadow-elevated {
+    box-shadow: var(--shadow-elevated);
+  }
+
+  /* NHRC specific button styles */
+  .btn-red {
+    @apply bg-primary text-primary-foreground hover:bg-primary/90 transition-colors;
+  }
+
+  .btn-blue {
+    @apply bg-secondary text-secondary-foreground hover:bg-secondary/90 transition-colors;
+  }
+
+  .btn-green {
+    background-color: hsl(var(--nhrc-green));
+    @apply text-white hover:opacity-90 transition-opacity;
+  }
+
+  /* News ticker styles */
+  .news-ticker {
+    @apply bg-primary text-primary-foreground py-2 overflow-hidden;
+  }
+
+  .animate-fade-in {
+    animation: fadeIn 0.6s ease-out forwards;
+  }
+
+  .animate-slide-up {
+    animation: slideUp 0.6s ease-out forwards;
+  }
+
+  .animate-marquee {
+    animation: marquee 20s linear infinite;
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { 
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to { 
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes marquee {
+  0% { transform: translateX(100%); }
+  100% { transform: translateX(-100%); }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: hsl(var(--muted));
+}
+
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--primary));
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--nhrc-dark-red));
+}
